@@ -1,4 +1,4 @@
-pragma solidity ^0.6.8;
+pragma solidity 0.7.4;
 import "./KittyswapsExchange.sol";
 import "../interfaces/IKittyswapsFactory.sol";
 
@@ -11,14 +11,13 @@ contract KittyswapsFactory is IKittyswapsFactory {
 
   // tokensToExchange[erc1155_token_address][currency_address][currency_token_id]
   mapping(address => mapping(address => mapping(uint256 => address))) public override tokensToExchange;
-  event NewExchange(address indexed token, address indexed currency, uint256 indexed currencyID, address exchange);
 
   /***********************************|
   |            Constructor            |
   |__________________________________*/
 
   /**
-   * @notice Creates a NiftySwap Exchange for given token contract
+   * @notice Creates a KittySwaps Exchange for given token contract
    * @param _token      The address of the ERC-1155 token contract
    * @param _currency   The address of the currency token contract
    * @param _currencyID The id of the currency token

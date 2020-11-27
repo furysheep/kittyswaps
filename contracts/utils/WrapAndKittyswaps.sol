@@ -1,4 +1,4 @@
-pragma solidity 0.6.8;
+pragma solidity 0.7.4;
 pragma experimental ABIEncoderV2;
 
 import "../interfaces/IKittyswapsExchange.sol";
@@ -152,7 +152,9 @@ contract WrapAndKittyswaps {
     // Send to recipient the unwrapped ERC-20, if any
     uint256 wrapped_token_amount = tokenWrapper.balanceOf(address(this), wrappedTokenID);
     if (wrapped_token_amount > 0) {
-      tokenWrapper.withdraw(erc20, payable(_from), wrapped_token_amount);
+      // Doing it in 2 calls so tx history is more consistent
+      tokenWrapper.withdraw(erc20, payable(address(this)), wrapped_token_amount);
+      IERC20(erc20).transfer(_from, wrapped_token_amount);
     }
 
     return IERC1155TokenReceiver.onERC1155BatchReceived.selector;

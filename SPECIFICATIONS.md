@@ -402,7 +402,7 @@ where `_data` is defined in the [Data Encoding: _removeLiquidity()](#_removeliqu
 
 # Data Encoding
 
-In order to call the correct NiftySwap method, users must encode a data payload containing the function signature to call and the method's receptive argument objects. All method calls must be encoded as follow:
+In order to call the correct KittySwaps method, users must encode a data payload containing the function signature to call and the method's receptive argument objects. All method calls must be encoded as follow:
 
 ```solidity
 // bytes4 method_signature
@@ -594,7 +594,7 @@ For `_addLiquidity()`, the rounding error can occur at
 uint256 currencyAmount = tokenAmount.mul(currencyReserve) / tokenReserve.sub(amount);
 ```
 
-where `currencyAmount` is the amount of currency that needs to be sent to NiftySwap for the given `tokenAmount` of token $i$ added to the liquidity. Rounding errors could lead to a smaller value of `currencyAmount` than expected, favoring the new liquidity provider, hence we add `1` to the amount that is required to be sent if a rounding error occurred. 
+where `currencyAmount` is the amount of currency that needs to be sent to KittySwaps for the given `tokenAmount` of token $i$ added to the liquidity. Rounding errors could lead to a smaller value of `currencyAmount` than expected, favoring the new liquidity provider, hence we add `1` to the amount that is required to be sent if a rounding error occurred. 
 
 Inversely, if a rounding error occurred when calculating the `currencyAmount`, the amount of liquidity tokens to be minted will favor the new liquidity provider instead of existing liquidity providers, which is undesirable. To compensate, we calculate the amount of liquidity token to mint to new liquidity provider as follow ; 
 
@@ -611,7 +611,7 @@ uint256 denominator = (_tokenReserve.sub(_tokenBoughtAmount));
 uint256 cost = numerator / denominator;
 ```
 
-where `cost` is the amount of currency that needs to be sent to NiftySwap for the given `_tokenBoughtAmount` of token $i$ being purchased. Rounding errors could lead to a smaller value of `cost` than expected, favoring the buyer, hence we add `1` to the amount that is required to be sent if a rounding error occurred.
+where `cost` is the amount of currency that needs to be sent to KittySwaps for the given `_tokenBoughtAmount` of token $i$ being purchased. Rounding errors could lead to a smaller value of `cost` than expected, favoring the buyer, hence we add `1` to the amount that is required to be sent if a rounding error occurred.
 
 For `_tokenToCurrency()`, the rounding error can occur at
 

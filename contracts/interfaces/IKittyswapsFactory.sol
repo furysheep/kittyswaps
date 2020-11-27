@@ -1,4 +1,4 @@
-pragma solidity ^0.6.8;
+pragma solidity 0.7.4;
 
 interface IKittyswapsFactory {
 
@@ -14,7 +14,7 @@ interface IKittyswapsFactory {
   |__________________________________*/
 
   /**
-   * @notice Creates a NiftySwap Exchange for given token contract
+   * @notice Creates a KittySwaps Exchange for given token contract
    * @param _token      The address of the ERC-1155 token contract
    * @param _currency   The address of the currency token contract
    * @param _currencyID The id of the currency token

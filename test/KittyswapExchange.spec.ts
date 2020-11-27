@@ -424,7 +424,7 @@ describe('KittyswapsExchange', () => {
             }
           })
       
-          it('should update NiftySwap Token ids balances', async () => {
+          it('should update KittySwaps Token ids balances', async () => {
             for (let i = 0; i < types.length; i++) {
               const exchangeBalance = await kittyswapsExchangeContract.functions.balanceOf(kittyswapsExchangeContract.address, types[i])
               const operatorBalance = await kittyswapsExchangeContract.functions.balanceOf(operatorAddress, types[i])
@@ -589,7 +589,7 @@ describe('KittyswapsExchange', () => {
             }
           })
       
-          it('should update NiftySwap Token ids balances', async () => {
+          it('should update KittySwaps Token ids balances', async () => {
             for (let i = 0; i < types.length; i++) {
               const exchangeBalance = await kittyswapsExchangeContract.functions.balanceOf(kittyswapsExchangeContract.address, types[i])
               const operatorBalance = await kittyswapsExchangeContract.functions.balanceOf(operatorAddress, types[i])
@@ -893,7 +893,7 @@ describe('KittyswapsExchange', () => {
               }
             })
         
-            it('should update NiftySwap Token ids balances', async () => {
+            it('should update KittySwaps Token ids balances', async () => {
               const expectedVal = currencyAmountToAdd.sub(currencyAmountToRemove)
               for (let i = 0; i < types.length; i++) {
                 const exchangeBalance = await kittyswapsExchangeContract.functions.balanceOf(kittyswapsExchangeContract.address, types[i])
